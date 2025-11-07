@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  app:
+    image: noplisu/rubberducky:latest
+    container_name: myapp
+    restart: always
+    expose:
+      - "80"
+
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  caddy_data:
+  caddy_config:
