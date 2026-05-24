@@ -1,15 +1,3 @@
-noplisu.com {
-  reverse_proxy noplisu.github.io {
-    header_up Host noplisu.github.io
-  }
-}
-
-www.noplisu.com {
-  reverse_proxy noplisu.github.io {
-    header_up Host noplisu.github.io
-  }
-}
-
 ducky.noplisu.com {
   reverse_proxy app:80
 }
